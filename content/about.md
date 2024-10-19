@@ -16,3 +16,6 @@ can be provided on request.
 In case you’d like to contact me:  
 [robert[at]thurnher.email](mailto:robert@thurnher.email)
 
+On Mastodon:  
+<a rel="me" target="_blank" href="https://toot.community/@robi42">toot.community/@robi42</a>
+
