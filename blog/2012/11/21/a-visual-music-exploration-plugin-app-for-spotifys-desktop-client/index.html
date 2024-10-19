@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Robi&#x27;s Blog</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://log.robi42.net/print.css" media="print">
+      <link rel="stylesheet" href="https://log.robi42.net/poole.css">
+      <link rel="stylesheet" href="https://log.robi42.net/hyde.css">
+      <link rel="stylesheet" href="https://log.robi42.net/custom.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="https://log.robi42.net/atom.xml">
+      
+
+      
+      
+    </head>
+
+    <body class="theme-base-0e ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;log.robi42.net"><h1>Robi&#x27;s Blog</h1></a>
+                            
+                            <p class="lead">On Life, the Universe and Everything, but mainly Software Development</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;about">About</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">A Visual Music Exploration Plugin App for Spotify&#x27;s Desktop Client</h1>
+  <span class="post-date">2012-11-21</span>
+  <p>This R&amp;D project which I’ve finished recently is in its essence implementing an innovative way of visualizing Spotify music collection data. It’s mainly geared towards discovery of similar music related to the currently played tracks of a user. Technically, the project partially builds upon the foundation layed out with a previous labs project – here’s a <a rel="noopener" target="_blank" href="http://sftb.herokuapp.com/docs/report.pdf">report</a> (PDF). Organisationally, it was done as a cooperation with <a rel="noopener" target="_blank" href="http://www.spectralmind.com/">Spectralmind</a> and the <a rel="noopener" target="_blank" href="http://ifs.tuwien.ac.at/mir/">MIR group</a> of Vienna University of Technology.</p>
+<h2 id="implementation">Implementation</h2>
+<p>Basically, the app connects to <strong>Last.fm</strong> data for similarity computation with their (more or less) RESTful web service API via JSONP. In addition to that, <strong>Spotify</strong>’s desktop client <a rel="noopener" target="_blank" href="https://developer.spotify.com/technologies/apps/">plugin apps</a> JS API is used pretty heavily. The graphics are rendered as interactive SVG through <strong>Raphaël.js</strong>. Plus, <strong>Backbone.js</strong> is applied as a mean to improve structure and, consequently, maintainability of the app. For layouting the animated visualization itself a force-directed <a rel="noopener" target="_blank" href="http://en.wikipedia.org/wiki/Force-based_algorithms_%28graph_drawing%29">spring graph</a> algorithm implementation is employed which was orginally written within Google’s Caja project and now adapted + tuned for the specific use case here.</p>
+<h2 id="functionality">Functionality</h2>
+<p>In the beginning, the user sees the current track symbolized by a central blue bubble and a loading spinner indicating app activity. Here’s a screenshot:</p>
+<p><img src="/spotify-bubbles/screenshot1.png" alt="Screenshot 1" /></p>
+<p>After that, found similar tracks are arranged as red bubbles in a concentric circle around the central one. Again, a screenshot:</p>
+<p><img src="/spotify-bubbles/screenshot2.png" alt="Screenshot 2" /></p>
+<p>Here’s how the actual animated spring graph layouting visualization initially looks like:</p>
+<p><img src="/spotify-bubbles/screenshot3.png" alt="Screenshot 3" /></p>
+<p>And this is how it can look like when the animation finished rendering:</p>
+<p><img src="/spotify-bubbles/screenshot4.png" alt="Screenshot 4" /></p>
+<p>The history of played tracks is visualized as a diagonal, interactive sort of a time axis which can also be seen here:</p>
+<p><img src="/spotify-bubbles/screenshot5.png" alt="Screenshot 5" /></p>
+<p>Intuitively, clicking on a bubble plays the respective track in the Spotify audio player and triggers a visualization iteration, BTW.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The approach proved to be viable and it can be worthwhile indeed searching and discovering new music fitting to one’s individual taste in an entertaining way with this Spotify plugin app. Nevertheless, there are still numerous details where improvements and enhancements are possible. E.g., the graphics and visualization could be made more pleasant. Apart from that, also further tweaking connected to similarity computation could be done. Yet, as a research prototype demonstrating a proof of concept this is sufficient, it was fun building it, and possibly it’ll show up within a polished product in one way or another. :)</p>
+<p><strong>PS &amp; FYI:</strong> Spectralmind is currently looking for Android developers – I’d recommend <a rel="noopener" target="_blank" href="http://www.spectralmind.com/company/jobs/">applying</a> since they’re great folks to work with on interesting projects.</p>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

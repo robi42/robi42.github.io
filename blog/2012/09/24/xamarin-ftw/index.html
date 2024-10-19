@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Robi&#x27;s Blog</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://log.robi42.net/print.css" media="print">
+      <link rel="stylesheet" href="https://log.robi42.net/poole.css">
+      <link rel="stylesheet" href="https://log.robi42.net/hyde.css">
+      <link rel="stylesheet" href="https://log.robi42.net/custom.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="https://log.robi42.net/atom.xml">
+      
+
+      
+      
+    </head>
+
+    <body class="theme-base-0e ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;log.robi42.net"><h1>Robi&#x27;s Blog</h1></a>
+                            
+                            <p class="lead">On Life, the Universe and Everything, but mainly Software Development</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;about">About</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Xamarin FTW?</h1>
+  <span class="post-date">2012-09-24</span>
+  <p>Often, when developing a mobile app one wants to target iOS as well as Android (+ maybe MS’ OS).</p>
+<p>Now, this basically means developing the app from scratch and consequently maintaining it at least twice on different platforms, written in different languages (Objective-C and Java, that is), using different sets of tools etc.</p>
+<p>Cumbersome and potentially error-prone. Well, there’s a viable alternative:</p>
+<p>With <a rel="noopener" target="_blank" href="http://xamarin.com/">Xamarin</a> one can write mobile apps targetting iOS and Android in C# using .NET (and native) libraries, sharing code (business logic, data &amp; web service layers, utilities, …) while creating fully native UIs built on each platform’s own SDKs, providing access to all respective device capabilities.</p>
+<p>In addition to that, there’s for example <a rel="noopener" target="_blank" href="http://blog.xamarin.com/2012/02/10/easily-create-ios-user-interfaces-with-monotouch-dialog/">MonoTouch.Dialog</a> making it easier and more fun to create table-based iOS UIs and for Android there’s a useful visual <a rel="noopener" target="_blank" href="http://docs.xamarin.com/android/tutorials/Designer_Walkthrough">UI design tool</a> within the MonoDevelop IDE. Plus, there’s <a rel="noopener" target="_blank" href="http://xamarin.com/mobileapi">Xamarin.Mobile</a> aimed at exposing an unified API facade for accessing common device features. All interesting stuff when used sensibly.</p>
+<p>Here’s some demo code (which is loosely based on samples from the recommendable book <a rel="noopener" target="_blank" href="http://shop.oreilly.com/product/0636920024002.do">“Mobile Development with C#”</a>) showing how mentioned shared layers could benefit:</p>
+<h2 id="simple-model">Simple model</h2>
+<pre data-lang="c#" style="background-color:#2e3440;color:#d8dee9;" class="language-c# "><code class="language-c#" data-lang="c#"><span style="color:#81a1c1;">public class </span><span style="color:#8fbcbb;">Tweet
+</span><span>{
+</span><span>    </span><span style="color:#81a1c1;">public long     </span><span>Id        { </span><span style="color:#81a1c1;">get</span><span style="color:#eceff4;">; </span><span style="color:#81a1c1;">set</span><span style="color:#eceff4;">; </span><span>}
+</span><span>    </span><span style="color:#81a1c1;">public </span><span style="color:#8fbcbb;">DateTime </span><span>CreatedAt { </span><span style="color:#81a1c1;">get</span><span style="color:#eceff4;">; </span><span style="color:#81a1c1;">set</span><span style="color:#eceff4;">; </span><span>}
+</span><span>    </span><span style="color:#81a1c1;">public string   </span><span>Text      { </span><span style="color:#81a1c1;">get</span><span style="color:#eceff4;">; </span><span style="color:#81a1c1;">set</span><span style="color:#eceff4;">; </span><span>}
+</span><span>}
+</span></code></pre>
+<h2 id="simple-rest-api-client">Simple REST API client</h2>
+<pre data-lang="c#" style="background-color:#2e3440;color:#d8dee9;" class="language-c# "><code class="language-c#" data-lang="c#"><span style="color:#81a1c1;">public class </span><span style="color:#8fbcbb;">TwitterApiClient
+</span><span>{
+</span><span>    </span><span style="color:#81a1c1;">const string </span><span>BaseUrl </span><span style="color:#81a1c1;">= </span><span style="color:#a3be8c;">&quot;https://api.twitter.com/1/statuses/&quot;</span><span style="color:#eceff4;">;
+</span><span>
+</span><span>    </span><span style="color:#81a1c1;">public void </span><span style="color:#88c0d0;">DoWithTweetsForUser</span><span>(</span><span style="color:#81a1c1;">string </span><span>username</span><span style="color:#eceff4;">, </span><span style="color:#8fbcbb;">Action</span><span>&lt;</span><span style="color:#8fbcbb;">IList</span><span>&lt;</span><span style="color:#8fbcbb;">Tweet</span><span>&gt;&gt; callback)
+</span><span>    {
+</span><span>        </span><span style="color:#81a1c1;">var </span><span>webClient </span><span style="color:#81a1c1;">= new </span><span style="color:#8fbcbb;">WebClient</span><span>()</span><span style="color:#eceff4;">;
+</span><span>        </span><span style="color:#81a1c1;">var </span><span>url </span><span style="color:#81a1c1;">= string.</span><span style="color:#88c0d0;">Format</span><span>(</span><span style="color:#a3be8c;">&quot;</span><span style="color:#ebcb8b;">{</span><span style="color:#b48ead;">0</span><span style="color:#ebcb8b;">}</span><span style="color:#a3be8c;">user_timeline.json?screen_name=</span><span style="color:#ebcb8b;">{</span><span style="color:#b48ead;">1</span><span style="color:#ebcb8b;">}</span><span style="color:#a3be8c;">&quot;</span><span style="color:#eceff4;">,
+</span><span>                                BaseUrl</span><span style="color:#eceff4;">, </span><span>Uri</span><span style="color:#81a1c1;">.</span><span style="color:#88c0d0;">EscapeUriString</span><span>(username))</span><span style="color:#eceff4;">;
+</span><span>
+</span><span>        webClient</span><span style="color:#81a1c1;">.</span><span>DownloadStringCompleted </span><span style="color:#81a1c1;">+= </span><span>(sender</span><span style="color:#eceff4;">, </span><span>e) </span><span style="color:#81a1c1;">=&gt; </span><span>{
+</span><span>            </span><span style="color:#81a1c1;">var </span><span>tweets </span><span style="color:#81a1c1;">= </span><span>(</span><span style="color:#81a1c1;">from </span><span>element </span><span style="color:#81a1c1;">in </span><span>JsonValue</span><span style="color:#81a1c1;">.</span><span style="color:#88c0d0;">Parse</span><span>(e</span><span style="color:#81a1c1;">.</span><span>Result) </span><span style="color:#81a1c1;">as </span><span style="color:#8fbcbb;">JsonArray
+</span><span>                </span><span style="color:#81a1c1;">let </span><span>tweetData </span><span style="color:#81a1c1;">= </span><span>element </span><span style="color:#81a1c1;">as </span><span style="color:#8fbcbb;">JsonObject
+</span><span>                </span><span style="color:#81a1c1;">select new </span><span style="color:#8fbcbb;">Tweet </span><span>{
+</span><span>                    Id        </span><span style="color:#81a1c1;">= </span><span>tweetData[</span><span style="color:#a3be8c;">&quot;id&quot;</span><span>]</span><span style="color:#eceff4;">,
+</span><span>                    CreatedAt </span><span style="color:#81a1c1;">= </span><span>DateTime</span><span style="color:#81a1c1;">.</span><span style="color:#88c0d0;">ParseExact</span><span>(tweetData[</span><span style="color:#a3be8c;">&quot;created_at&quot;</span><span>]</span><span style="color:#eceff4;">,
+</span><span>                                    </span><span style="color:#a3be8c;">&quot;ddd MMM dd HH:mm:ss zz00 yyyy&quot;</span><span style="color:#eceff4;">, </span><span style="color:#81a1c1;">null</span><span>)</span><span style="color:#eceff4;">,
+</span><span>                    Text      </span><span style="color:#81a1c1;">= </span><span>tweetData[</span><span style="color:#a3be8c;">&quot;text&quot;</span><span>]</span><span style="color:#eceff4;">,
+</span><span>                })
+</span><span>                </span><span style="color:#81a1c1;">.</span><span style="color:#88c0d0;">ToList</span><span>()</span><span style="color:#eceff4;">;
+</span><span>
+</span><span>            </span><span style="color:#88c0d0;">callback</span><span>(tweets)</span><span style="color:#eceff4;">;
+</span><span>        }</span><span style="color:#eceff4;">;
+</span><span>
+</span><span>        webClient</span><span style="color:#81a1c1;">.</span><span style="color:#88c0d0;">DownloadStringAsync</span><span>(</span><span style="color:#81a1c1;">new </span><span style="color:#8fbcbb;">Uri</span><span>(url))</span><span style="color:#eceff4;">;
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<h2 id="exemplary-user-code">Exemplary user code</h2>
+<pre data-lang="c#" style="background-color:#2e3440;color:#d8dee9;" class="language-c# "><code class="language-c#" data-lang="c#"><span style="color:#81a1c1;">var </span><span>apiClient </span><span style="color:#81a1c1;">= new </span><span style="color:#8fbcbb;">TwitterApiClient</span><span>()</span><span style="color:#eceff4;">;
+</span><span>
+</span><span>apiClient</span><span style="color:#81a1c1;">.</span><span style="color:#88c0d0;">DoWithTweetsForUser</span><span>(</span><span style="color:#a3be8c;">&quot;robi42&quot;</span><span style="color:#eceff4;">, </span><span>tweets </span><span style="color:#81a1c1;">=&gt; </span><span>{
+</span><span>    </span><span style="color:#81a1c1;">foreach </span><span>(</span><span style="color:#81a1c1;">var </span><span>tweet </span><span style="color:#81a1c1;">in </span><span>tweets) </span><span style="color:#616e88;">// Just for demo purpose.
+</span><span>        Debug</span><span style="color:#81a1c1;">.</span><span style="color:#88c0d0;">WriteLine</span><span>(</span><span style="color:#a3be8c;">&quot;Tweet from </span><span style="color:#ebcb8b;">{</span><span style="color:#b48ead;">0</span><span style="color:#ebcb8b;">}</span><span style="color:#a3be8c;">: </span><span style="color:#ebcb8b;">{</span><span style="color:#b48ead;">1</span><span style="color:#ebcb8b;">}</span><span style="color:#a3be8c;">&quot;</span><span style="color:#eceff4;">, </span><span>tweet</span><span style="color:#81a1c1;">.</span><span>CreatedAt</span><span style="color:#eceff4;">, </span><span>tweet</span><span style="color:#81a1c1;">.</span><span>Text)</span><span style="color:#eceff4;">;
+</span><span>})</span><span style="color:#eceff4;">;
+</span></code></pre>
+<p>And with .NET 4.5’s new <a rel="noopener" target="_blank" href="http://blogs.msdn.com/b/dotnet/archive/2012/04/03/async-in-4-5-worth-the-await.aspx">async features</a> landing in Monoland soon, related code will get even more convenient to write and handle.</p>
+<p>Pretty neat, IMHO. What do you think?</p>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>
