@@ -13,6 +13,7 @@ author = "Robert Thurnher"
 
 theme = "hyde"
 generate_feeds = true
+feed_filenames = ["atom.xml"]
 #taxonomies = [{name = "tags"}]
 
 [markdown]
