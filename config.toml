@@ -1,0 +1,34 @@
+# The URL the site will be built for
+base_url = "https://log.robi42.net"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = false
+
+title = "Robi's Blog"
+description = "On Life, the Universe and Everything, but mainly Software Development"
+author = "Robert Thurnher"
+
+theme = "hyde"
+generate_feeds = true
+#taxonomies = [{name = "tags"}]
+
+[markdown]
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = true
+highlight_theme = "nord"
+render_emoji = true
+external_links_target_blank = true
+smart_punctuation = true
+
+[extra]
+# Put all your custom variables here
+hyde_theme = "theme-base-0e"
+#hyde_reverse = true
+hyde_links = [
+    {url = "/about", name = "About"},
+]
+
