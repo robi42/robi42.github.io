@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Robi&#x27;s Blog</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://log.robi42.net/print.css" media="print">
+      <link rel="stylesheet" href="https://log.robi42.net/poole.css">
+      <link rel="stylesheet" href="https://log.robi42.net/hyde.css">
+      <link rel="stylesheet" href="https://log.robi42.net/custom.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="https://log.robi42.net/atom.xml">
+      
+
+      
+      
+    </head>
+
+    <body class="theme-base-0e ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;log.robi42.net"><h1>Robi&#x27;s Blog</h1></a>
+                            
+                            <p class="lead">On Life, the Universe and Everything, but mainly Software Development</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;about">About</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Play 2 Boilerplate</h1>
+  <span class="post-date">2012-09-21</span>
+  <p>A little project aimed at getting one up and running quickly with building a
+contemporary web app using <a rel="noopener" target="_blank" href="http://www.playframework.org/">Play 2</a> framework.</p>
+<p>Contains a bunch of current web dev <strong>best practices</strong> and niceties, from latest
+Twitter Bootstrap (LESS) &amp; Backbone.js to CoffeeScript with CommonJS modules
+support &amp; proper JS bundling.</p>
+<p>Here’re a couple of exemplary code snippets to whet one’s appetite:</p>
+<h2 id="main-coffee">main.coffee</h2>
+<pre data-lang="ruby" style="background-color:#2e3440;color:#d8dee9;" class="language-ruby "><code class="language-ruby" data-lang="ruby"><span>{log} </span><span style="color:#81a1c1;">= require </span><span style="color:#a3be8c;">&#39;./utilities&#39;
+</span><span>
+</span><span>$(document)</span><span style="color:#81a1c1;">.</span><span>ready </span><span style="color:#81a1c1;">-&gt;
+</span><span>  window</span><span style="color:#81a1c1;">.</span><span>app </span><span style="color:#81a1c1;">= </span><span>{}
+</span><span>  log </span><span style="color:#a3be8c;">&#39;Hello, world!&#39;
+</span><span>  </span><span style="color:#81a1c1;">return
+</span></code></pre>
+<h2 id="application-scala">Application.scala</h2>
+<pre data-lang="scala" style="background-color:#2e3440;color:#d8dee9;" class="language-scala "><code class="language-scala" data-lang="scala"><span style="color:#81a1c1;">object</span><span style="color:#8fbcbb;"> Application </span><span>extends </span><span style="color:#8fbcbb;">Controller </span><span>{
+</span><span>
+</span><span>  </span><span style="color:#81a1c1;">def </span><span style="color:#88c0d0;">index </span><span style="color:#81a1c1;">= </span><span style="color:#8fbcbb;">Action </span><span>{
+</span><span>    </span><span style="color:#8fbcbb;">Ok</span><span>(views</span><span style="color:#81a1c1;">.</span><span>html</span><span style="color:#81a1c1;">.</span><span>index(</span><span style="color:#8fbcbb;">Messages</span><span>(</span><span style="color:#a3be8c;">&quot;app.name&quot;</span><span>)))
+</span><span>  }
+</span><span>
+</span><span>}
+</span></code></pre>
+<p><a rel="noopener" target="_blank" href="https://github.com/robi42/play2-boilerplate">Get it on GitHub</a> while it’s hot.</p>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

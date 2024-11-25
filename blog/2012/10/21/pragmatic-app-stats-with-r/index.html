@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Robi&#x27;s Blog</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://log.robi42.net/print.css" media="print">
+      <link rel="stylesheet" href="https://log.robi42.net/poole.css">
+      <link rel="stylesheet" href="https://log.robi42.net/hyde.css">
+      <link rel="stylesheet" href="https://log.robi42.net/custom.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="https://log.robi42.net/atom.xml">
+      
+
+      
+      
+    </head>
+
+    <body class="theme-base-0e ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;log.robi42.net"><h1>Robi&#x27;s Blog</h1></a>
+                            
+                            <p class="lead">On Life, the Universe and Everything, but mainly Software Development</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;about">About</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Pragmatic App Stats With R</h1>
+  <span class="post-date">2012-10-21</span>
+  <p>Here’re some tips for conveniently generating automated visual app stats from MySQL data.</p>
+<p>Recommended toolchain:</p>
+<ul>
+<li><a rel="noopener" target="_blank" href="https://www.r-project.org/">R</a> + <a rel="noopener" target="_blank" href="https://posit.co/products/open-source/rstudio/">RStudio</a></li>
+<li><a rel="noopener" target="_blank" href="https://cran.r-project.org/web/packages/RMySQL/">RMySQL</a> + <a rel="noopener" target="_blank" href="https://ggplot2.tidyverse.org/">ggplot2</a></li>
+<li>*nix, cron + mailx &amp; co.</li>
+</ul>
+<p>Corresponding code bits to get one started:</p>
+<h2 id="simplified-r-script">Simplified R script</h2>
+<pre data-lang="r" style="background-color:#2e3440;color:#d8dee9;" class="language-r "><code class="language-r" data-lang="r"><span style="color:#616e88;">#!/usr/bin/Rscript
+</span><span>
+</span><span style="color:#616e88;">#install.packages(&#39;RMySQL&#39;)
+</span><span style="color:#616e88;">#install.packages(&#39;ggplot2&#39;)
+</span><span>
+</span><span style="color:#88c0d0;">library</span><span>(RMySQL)
+</span><span style="color:#88c0d0;">library</span><span>(ggplot2)
+</span><span style="color:#88c0d0;">library</span><span>(grid)
+</span><span>
+</span><span>
+</span><span style="color:#616e88;"># PNG layout of plots helper.
+</span><span style="color:#88c0d0;">vplayout </span><span style="color:#81a1c1;">&lt;- function</span><span>(x</span><span style="color:#eceff4;">, </span><span>y) </span><span style="color:#88c0d0;">viewport</span><span>(layout.pos.row</span><span style="color:#81a1c1;">=</span><span>x</span><span style="color:#eceff4;">, </span><span>layout.pos.col</span><span style="color:#81a1c1;">=</span><span>y)
+</span><span>
+</span><span>
+</span><span style="color:#616e88;"># Connect to DB.
+</span><span>dbUsername </span><span style="color:#81a1c1;">&lt;- </span><span style="color:#a3be8c;">&#39;some_user&#39;
+</span><span>dbPassword </span><span style="color:#81a1c1;">&lt;- </span><span style="color:#a3be8c;">&#39;some_password&#39;
+</span><span>dbName     </span><span style="color:#81a1c1;">&lt;- </span><span style="color:#a3be8c;">&#39;app_stats_snapshot&#39;
+</span><span>dbHost     </span><span style="color:#81a1c1;">&lt;- </span><span style="color:#a3be8c;">&#39;localhost&#39;
+</span><span>
+</span><span>dbConnection </span><span style="color:#81a1c1;">&lt;- </span><span style="color:#88c0d0;">dbConnect</span><span>(</span><span style="color:#88c0d0;">MySQL</span><span>()</span><span style="color:#eceff4;">, </span><span>user</span><span style="color:#81a1c1;">=</span><span>dbUsername</span><span style="color:#eceff4;">, </span><span>password</span><span style="color:#81a1c1;">=</span><span>dbPassword</span><span style="color:#eceff4;">,
+</span><span>                          dbname</span><span style="color:#81a1c1;">=</span><span>dbName</span><span style="color:#eceff4;">, </span><span>host</span><span style="color:#81a1c1;">=</span><span>dbHost)
+</span><span>
+</span><span>
+</span><span style="color:#616e88;"># Exemplary queries.
+</span><span>recordsPerDayQuery </span><span style="color:#81a1c1;">&lt;-
+</span><span>  </span><span style="color:#a3be8c;">&#39;select date(created_at) as Day, count(*) as Count from records where created_at &gt;= &quot;2012-1-1&quot; and date(created_at) &lt; date(now()) group by Day&#39;
+</span><span>
+</span><span>otherRecordsPerDayQuery </span><span style="color:#81a1c1;">&lt;-
+</span><span>  </span><span style="color:#a3be8c;">&#39;select date(created_at) as Day, count(*) as Count from other_records where created_at &gt;= &quot;2012-1-1&quot; and date(created_at) &lt; date(now()) group by Day&#39;
+</span><span style="color:#616e88;"># ...
+</span><span>
+</span><span>
+</span><span style="color:#616e88;"># Query data and plot charts.
+</span><span>d1 </span><span style="color:#81a1c1;">&lt;- </span><span style="color:#88c0d0;">dbGetQuery</span><span>(dbConnection</span><span style="color:#eceff4;">,</span><span> recordsPerDayQuery)
+</span><span>
+</span><span>xlabText </span><span style="color:#81a1c1;">&lt;- </span><span style="color:#a3be8c;">&#39;2012&#39;</span><span style="color:#eceff4;">;</span><span> ylabText </span><span style="color:#81a1c1;">&lt;- </span><span style="color:#a3be8c;">&#39;Count&#39;
+</span><span>Records </span><span style="color:#81a1c1;">&lt;-</span><span> d1$Count
+</span><span>heading1 </span><span style="color:#81a1c1;">&lt;- </span><span style="color:#a3be8c;">&#39;Records per Day&#39;
+</span><span>
+</span><span>plot1 </span><span style="color:#81a1c1;">&lt;- </span><span style="color:#88c0d0;">qplot</span><span>(</span><span style="color:#88c0d0;">as.Date</span><span>(d1$Day)</span><span style="color:#eceff4;">,</span><span> d1$Count</span><span style="color:#eceff4;">, </span><span>geom</span><span style="color:#81a1c1;">=</span><span style="color:#a3be8c;">&#39;line&#39;</span><span style="color:#eceff4;">, </span><span>color</span><span style="color:#81a1c1;">=</span><span>Records</span><span style="color:#eceff4;">,
+</span><span>               main</span><span style="color:#81a1c1;">=</span><span>heading1</span><span style="color:#eceff4;">, </span><span>xlab</span><span style="color:#81a1c1;">=</span><span>xlabText</span><span style="color:#eceff4;">, </span><span>ylab</span><span style="color:#81a1c1;">=</span><span>ylabText)
+</span><span>
+</span><span>d2 </span><span style="color:#81a1c1;">&lt;- </span><span style="color:#88c0d0;">dbGetQuery</span><span>(dbConnection</span><span style="color:#eceff4;">,</span><span> otherRecordsPerDayQuery)
+</span><span>
+</span><span>Other </span><span style="color:#81a1c1;">&lt;-</span><span> d2$Count
+</span><span>heading2 </span><span style="color:#81a1c1;">&lt;- </span><span style="color:#a3be8c;">&#39;Other Records per Day&#39;
+</span><span>
+</span><span>plot2 </span><span style="color:#81a1c1;">&lt;- </span><span style="color:#88c0d0;">qplot</span><span>(</span><span style="color:#88c0d0;">as.Date</span><span>(d2$Day)</span><span style="color:#eceff4;">,</span><span> d2$Count</span><span style="color:#eceff4;">, </span><span>geom</span><span style="color:#81a1c1;">=</span><span style="color:#a3be8c;">&#39;line&#39;</span><span style="color:#eceff4;">, </span><span>color</span><span style="color:#81a1c1;">=</span><span>Other</span><span style="color:#eceff4;">,
+</span><span>               main</span><span style="color:#81a1c1;">=</span><span>heading2</span><span style="color:#eceff4;">, </span><span>xlab</span><span style="color:#81a1c1;">=</span><span style="color:#a3be8c;">&#39;2012&#39;</span><span style="color:#eceff4;">, </span><span>ylab</span><span style="color:#81a1c1;">=</span><span style="color:#a3be8c;">&#39;Count&#39;</span><span>)
+</span><span style="color:#616e88;"># ...
+</span><span>
+</span><span>
+</span><span style="color:#616e88;"># Write data tables to mail text file.
+</span><span>mailTextFilename </span><span style="color:#81a1c1;">&lt;- </span><span style="color:#a3be8c;">&#39;/path/to/stats-mail.txt&#39;
+</span><span>
+</span><span style="color:#88c0d0;">cat</span><span>(</span><span style="color:#88c0d0;">paste</span><span>(</span><span style="color:#a3be8c;">&#39;Hi,</span><span style="color:#ebcb8b;">\n\n</span><span style="color:#a3be8c;">#&#39;</span><span style="color:#eceff4;">,</span><span> heading1</span><span style="color:#eceff4;">, </span><span style="color:#a3be8c;">&#39;</span><span style="color:#ebcb8b;">\n</span><span style="color:#a3be8c;">&#39;</span><span>)</span><span style="color:#eceff4;">, </span><span>file</span><span style="color:#81a1c1;">=</span><span>mailTextFilename)
+</span><span style="color:#88c0d0;">write.table</span><span>(d1</span><span style="color:#eceff4;">, </span><span>file</span><span style="color:#81a1c1;">=</span><span>mailTextFilename</span><span style="color:#eceff4;">, </span><span>append</span><span style="color:#81a1c1;">=TRUE</span><span style="color:#eceff4;">,
+</span><span>            row.names</span><span style="color:#81a1c1;">=FALSE</span><span style="color:#eceff4;">, </span><span>quote</span><span style="color:#81a1c1;">=FALSE</span><span style="color:#eceff4;">, </span><span>sep</span><span style="color:#81a1c1;">=</span><span style="color:#a3be8c;">&#39; | &#39;</span><span>)
+</span><span>
+</span><span style="color:#88c0d0;">cat</span><span>(</span><span style="color:#88c0d0;">paste</span><span>(</span><span style="color:#a3be8c;">&#39;</span><span style="color:#ebcb8b;">\n</span><span style="color:#a3be8c;">#&#39;</span><span style="color:#eceff4;">,</span><span> heading2</span><span style="color:#eceff4;">, </span><span style="color:#a3be8c;">&#39;</span><span style="color:#ebcb8b;">\n</span><span style="color:#a3be8c;">&#39;</span><span>)</span><span style="color:#eceff4;">, </span><span>file</span><span style="color:#81a1c1;">=</span><span>mailTextFilename</span><span style="color:#eceff4;">, </span><span>append</span><span style="color:#81a1c1;">=TRUE</span><span>)
+</span><span style="color:#88c0d0;">write.table</span><span>(d2</span><span style="color:#eceff4;">, </span><span>file</span><span style="color:#81a1c1;">=</span><span>mailTextFilename</span><span style="color:#eceff4;">, </span><span>append</span><span style="color:#81a1c1;">=TRUE</span><span style="color:#eceff4;">,
+</span><span>            row.names</span><span style="color:#81a1c1;">=FALSE</span><span style="color:#eceff4;">, </span><span>quote</span><span style="color:#81a1c1;">=FALSE</span><span style="color:#eceff4;">, </span><span>sep</span><span style="color:#81a1c1;">=</span><span style="color:#a3be8c;">&#39; | &#39;</span><span>)
+</span><span style="color:#616e88;"># ...
+</span><span>
+</span><span>
+</span><span style="color:#616e88;"># Make PNG with plotted charts.
+</span><span style="color:#88c0d0;">png</span><span>(</span><span style="color:#a3be8c;">&#39;/path/to/stats.png&#39;</span><span style="color:#eceff4;">, </span><span>width</span><span style="color:#81a1c1;">=</span><span style="color:#b48ead;">1024</span><span style="color:#eceff4;">, </span><span>height</span><span style="color:#81a1c1;">=</span><span style="color:#b48ead;">768</span><span>)
+</span><span>
+</span><span style="color:#88c0d0;">grid.newpage</span><span>()
+</span><span style="color:#88c0d0;">pushViewport</span><span>(</span><span style="color:#88c0d0;">viewport</span><span>(layout</span><span style="color:#81a1c1;">=</span><span style="color:#88c0d0;">grid.layout</span><span>(</span><span style="color:#b48ead;">2</span><span style="color:#eceff4;">, </span><span style="color:#b48ead;">1</span><span>)))
+</span><span>
+</span><span style="color:#88c0d0;">print</span><span>(plot1</span><span style="color:#eceff4;">, </span><span>vp</span><span style="color:#81a1c1;">=</span><span style="color:#88c0d0;">vplayout</span><span>(</span><span style="color:#b48ead;">1</span><span style="color:#eceff4;">, </span><span style="color:#b48ead;">1</span><span>))
+</span><span style="color:#88c0d0;">print</span><span>(plot2</span><span style="color:#eceff4;">, </span><span>vp</span><span style="color:#81a1c1;">=</span><span style="color:#88c0d0;">vplayout</span><span>(</span><span style="color:#b48ead;">2</span><span style="color:#eceff4;">, </span><span style="color:#b48ead;">1</span><span>))
+</span><span style="color:#616e88;"># ...
+</span><span>
+</span><span style="color:#88c0d0;">dev.off</span><span>()
+</span></code></pre>
+<h2 id="related-crontab-sending-stats-mail-once-per-week">Related crontab sending stats mail once per week</h2>
+<pre data-lang="bash" style="background-color:#2e3440;color:#d8dee9;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#616e88;"># m h  dom mon dow   command
+</span><span style="color:#88c0d0;">30</span><span> 4 </span><span style="color:#81a1c1;">* *</span><span> 1 /path/to/stats.r
+</span><span style="color:#88c0d0;">0</span><span>  5 </span><span style="color:#81a1c1;">* *</span><span> 1 mailx -s </span><span style="color:#a3be8c;">&#39;[Example] Stats&#39;</span><span> -a /path/to/stats.png stats@example.com </span><span style="color:#81a1c1;">&lt;</span><span> /path/to/stats-mail.txt
+</span></code></pre>
+<p>HTH.</p>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>
