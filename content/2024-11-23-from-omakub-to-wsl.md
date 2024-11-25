@@ -5,7 +5,8 @@ date = 2024-11-23
 #tags = ["Tech", "Hardware", "Software"]
 +++
 
-Recently, I've had the opportunity to reconsider my **tech** choices and habits. Both **hardware** and **software**.  
+Recently, I've had the opportunity to reconsider my **tech** choices and habits.  
+Both **hardware** and **software**.  
 
 At first, I finally got around revamping my old (like almost a decade old) [System76](https://system76.com/) [laptop](https://support.system76.com/service-manuals/pdfs/Galago/galp2-service-manual.pdf). Initially, thought to just upgrade to latest [Pop!_OS](https://pop.system76.com/), but this turned out to be bit of a bumpy ride, given how outdated it was.  
 
