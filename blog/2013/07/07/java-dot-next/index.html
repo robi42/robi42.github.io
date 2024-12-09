@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Robi&#x27;s Blog</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://log.robi42.net/print.css" media="print">
+      <link rel="stylesheet" href="https://log.robi42.net/poole.css">
+      <link rel="stylesheet" href="https://log.robi42.net/hyde.css">
+      <link rel="stylesheet" href="https://log.robi42.net/custom.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="https://log.robi42.net/atom.xml">
+      
+
+      
+      
+    </head>
+
+    <body class="theme-base-0e ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;log.robi42.net"><h1>Robi&#x27;s Blog</h1></a>
+                            
+                            <p class="lead">On Life, the Universe and Everything, but mainly Software Development</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;about">About</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Java.next?</h1>
+  <span class="post-date">2013-07-07</span>
+  <p>After several years of programming Java while always keeping an eye on alternatives around, I’ve recently come to the conclusion:</p>
+<p>Actually, there are just a few things still missing in the language these days which would render me a <em>happy camper</em>™ indeed (enjoying its mature ecosystem of libraries &amp; tools).</p>
+<p>Especially, since <a rel="noopener" target="_blank" href="https://projectlombok.org/">Lombok</a> takes a lot of the general boilerplate code PITA away here (with useful features like convenient property accessors, <code>hashCode/equals/toString</code> impl., logging facility injection, …).</p>
+<p>Also, <a rel="noopener" target="_blank" href="https://code.google.com/p/guava-libraries/wiki/GuavaExplained">Guava</a> does a truly good job in enabling one to write more concise and robust code.</p>
+<p>Plus, Java 7 brought at least some nice, welcome <a rel="noopener" target="_blank" href="https://www.oracle.com/technetwork/java/javase/jdk7-relnotes-418459.html#changes">improvements</a> in<br>
+→ <code>try-with-resources</code>, exceptions <code>multicatch</code>, etc.</p>
+<p>Finally, modern <a rel="noopener" target="_blank" href="https://www.martinfowler.com/articles/injection.html#FormsOfDependencyInjection">DI</a> with Spring 4 (or Guice) using <code>javax.inject.*</code> and Java config frees one from most needs for XML and, after all, a build sys beating Maven for real has yet to come.</p>
+<p>So namely, here’s a <strong>personal wish list FTW</strong>:</p>
+<ul>
+<li>Pretty much everything <a rel="noopener" target="_blank" href="https://www.techempower.com/blog/2013/03/26/everything-about-java-8/">coming up with Java/JDK 8</a> (sooner than later, hopefully) – particularly <strong>lambdas</strong> (at last…)</li>
+<li>More <strong>type inference</strong> (which the JVM is totally capable of); Java 7’s diamond operator’s definitely a good start there but, please, let me write <code>val foos = ...</code> (like in Scala…)</li>
+<li><strong>Collection literals</strong> à la Python or C#, something like this would be really sweet:</li>
+</ul>
+<pre data-lang="kotlin" style="background-color:#2e3440;color:#d8dee9;" class="language-kotlin "><code class="language-kotlin" data-lang="kotlin"><span>     </span><span style="color:#81a1c1;">val </span><span>foo </span><span style="color:#81a1c1;">=</span><span> #{</span><span style="color:#a3be8c;">&quot;bar&quot;</span><span style="color:#81a1c1;">: </span><span style="color:#a3be8c;">&quot;baz&quot;</span><span>}</span><span style="color:#eceff4;">;
+</span><span>     foo[</span><span style="color:#a3be8c;">&quot;bar&quot;</span><span>] </span><span style="color:#81a1c1;">= </span><span style="color:#a3be8c;">&quot;qux&quot;</span><span style="color:#eceff4;">;
+</span></code></pre>
+<p>Pretty please. :)</p>
+<p>PS: literal multiline strings, and so on and so forth, could be nice (but I can live without).<br>
+PPS: wouldn’t say no to optionally named function/constructor args, though.</p>
+<p><strong>Update 2016:</strong> these days, <a rel="noopener" target="_blank" href="https://kotlinlang.org/">Kotlin</a>’s the way to go, IMHO. :)</p>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

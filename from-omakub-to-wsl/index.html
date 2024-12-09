@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Robi&#x27;s Blog</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://log.robi42.net/print.css" media="print">
+      <link rel="stylesheet" href="https://log.robi42.net/poole.css">
+      <link rel="stylesheet" href="https://log.robi42.net/hyde.css">
+      <link rel="stylesheet" href="https://log.robi42.net/custom.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="https://log.robi42.net/atom.xml">
+      
+
+      
+      
+    </head>
+
+    <body class="theme-base-0e ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;log.robi42.net"><h1>Robi&#x27;s Blog</h1></a>
+                            
+                            <p class="lead">On Life, the Universe and Everything, but mainly Software Development</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;about">About</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">From Omakub to WSL</h1>
+  <span class="post-date">2024-11-23</span>
+  <p>Recently, I’ve had the opportunity to reconsider my <strong>tech</strong> choices and habits.<br />
+Both <strong>hardware</strong> and <strong>software</strong>.</p>
+<p>At first, I finally got around revamping my old (like almost a decade old) <a rel="noopener" target="_blank" href="https://system76.com/">System76</a> <a rel="noopener" target="_blank" href="https://support.system76.com/service-manuals/pdfs/Galago/galp2-service-manual.pdf">laptop</a>. Initially, thought to just upgrade to latest <a rel="noopener" target="_blank" href="https://pop.system76.com/">Pop!_OS</a>, but this turned out to be bit of a bumpy ride, given how outdated it was.</p>
+<p>Next, recalled <a rel="noopener" target="_blank" href="https://dhh.dk/">DHH</a> just promoting an <em>Ubuntu</em>-based distro, <a rel="noopener" target="_blank" href="https://omakub.org/">Omakub</a>, geared towards developers coming from the Mac to <strong>Linux</strong>. And I have to say it rocks. So many great things in there. Even if you’re not inclined to leave the <em>Apple</em> bubble, I’d recommend taking a look at its CLI <a rel="noopener" target="_blank" href="https://manual.omakub.org/1/read/10/the-applications">toolchain</a> and <a rel="noopener" target="_blank" href="https://github.com/basecamp/omakub">dotfiles</a>, at the very least. Having loads of <strong><a rel="noopener" target="_blank" href="https://github.com/basecamp/omakub/issues/284">fun</a></strong> with this, and also finally managed to get my Linux laptop hooked up reliably to my similarly ancient Apple <a rel="noopener" target="_blank" href="https://support.apple.com/en-us/112597">Thunderbolt display</a> (still a solid screen with some dock-like hub capabilities, a sufficiently well-working webcam, and exceptionally good analog speakers built in).</p>
+<p>Then, got to choose a new work laptop. In the end, went with a <em>Lenovo</em> <a rel="noopener" target="_blank" href="https://www.lenovo.com/us/en/p/laptops/thinkpad/thinkpadx1/thinkpad-x1-carbon-gen-12-14-inch-intel/len101t0083">ThinkPad X1 Carbon</a> (Gen 12) – what a great machine. Maxed out most specs, like 64 gigs of RAM and a 2 TB SSD (but a less high-resolution display for battery life). Now, initial plan was to install Linux on it as well, as it came with <strong>Windows</strong> 11 Pro. While updating stuff like drivers, firmware and BIOS, thought why not actually giving it a spin. Having heard from DHH’s <a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=odSJr7HZMEQ">story</a>, he went down a similar path, spending some time on Windows while finding his way out Apple lock-in. With things like <a rel="noopener" target="_blank" href="https://learn.microsoft.com/en-us/windows/wsl/">WSL</a> it’s become a seriously nice environment for developers (even got a decent <a rel="noopener" target="_blank" href="https://apps.microsoft.com/detail/9n0dx20hk701?hl=en-us&amp;gl=NL">terminal app</a> by now), and the OS itself is a pretty pleasant window management system, getting out of the way, these days (<a rel="noopener" target="_blank" href="https://github.com/microsoft/PowerToys?tab=readme-ov-file#microsoft-powertoys">PowerToys</a> FTW). Amusing how Apple and Microsoft appear to have swapped roles — with MS actively supporting and <a rel="noopener" target="_blank" href="https://www.theverge.com/2020/5/18/21262103/microsoft-open-source-linux-history-wrong-statement">embracing open-source</a> software.</p>
+<p>So, am currently happy with this setup. In my home office having ThinkPad connected to my second screen, a good old <em>Dell UltraSharp</em> 27-incher. Seamlessly toggling between Linux and Windows/WSL box via <a rel="noopener" target="_blank" href="https://www.amazon.com/UGREEN-Switcher-Computers-Keyboard-Splitter/dp/B0CLXYVM36">USB switch</a>. Keyboard-wise, am since what feels like an eternity using a <em>Matias</em> <a rel="noopener" target="_blank" href="https://matias.ca/quietpro/mac/">Quiet Pro</a>, and just got me a <em>Lofree</em> <a rel="noopener" target="_blank" href="https://www.lofree.co/products/lofree-flow-the-smoothest-mechanical-keyboard?variant=44741423169755">Flow84</a> for on-the-go. Mouse-wise, I like <em>Logitech MX</em> series. <em>Bose</em> headphones rule. In terms of mobile devices, moved from an <em>iPhone</em> (SE) over to a <a rel="noopener" target="_blank" href="https://shop.fairphone.com/fairphone-5">Fairphone 5</a>. Also <strong>Android</strong> is pretty neat nowadays, but that’s something for another time, I reckon (Windows mobile integration is quite comfy as well, by the way).</p>
+<p><strong>PS:</strong> might share some more on my WSL shell setup in the future, stay tuned.<br />
+In a nutshell, it’s a mix of <a rel="noopener" target="_blank" href="https://ohmyz.sh/">Oh My Zsh</a> with <a rel="noopener" target="_blank" href="https://starship.rs/">Starship</a> prompt, <a rel="noopener" target="_blank" href="https://www.nerdfonts.com/">Nerd Font</a>, various tools (like Neovim through <a rel="noopener" target="_blank" href="https://www.lazyvim.org/">LazyVim</a>), and some custom dotfiles, plus <a rel="noopener" target="_blank" href="https://github.com/charmbracelet/gum?tab=readme-ov-file#gum">gum</a>-based maintenance scripts, also heavily inspired by Omakub.</p>
+
+</div>
+
+        </div>
+
+    </body>
+
+</html>

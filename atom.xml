@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Robi&#x27;s Blog</title>
+    <subtitle>On Life, the Universe and Everything, but mainly Software Development</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://log.robi42.net/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://log.robi42.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-11-23T00:00:00+00:00</updated>
+    <id>https://log.robi42.net/atom.xml</id>
+    <entry xml:lang="en">
+        <title>From Omakub to WSL</title>
+        <published>2024-11-23T00:00:00+00:00</published>
+        <updated>2024-11-23T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Robert Thurnher
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://log.robi42.net/from-omakub-to-wsl/"/>
+        <id>https://log.robi42.net/from-omakub-to-wsl/</id>
+        
+        <content type="html" xml:base="https://log.robi42.net/from-omakub-to-wsl/">&lt;p&gt;Recently, I’ve had the opportunity to reconsider my &lt;strong&gt;tech&lt;&#x2F;strong&gt; choices and habits.&lt;br &#x2F;&gt;
+Both &lt;strong&gt;hardware&lt;&#x2F;strong&gt; and &lt;strong&gt;software&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;At first, I finally got around revamping my old (like almost a decade old) &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;system76.com&#x2F;&quot;&gt;System76&lt;&#x2F;a&gt; &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;support.system76.com&#x2F;service-manuals&#x2F;pdfs&#x2F;Galago&#x2F;galp2-service-manual.pdf&quot;&gt;laptop&lt;&#x2F;a&gt;. Initially, thought to just upgrade to latest &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;pop.system76.com&#x2F;&quot;&gt;Pop!_OS&lt;&#x2F;a&gt;, but this turned out to be bit of a bumpy ride, given how outdated it was.&lt;&#x2F;p&gt;
+&lt;p&gt;Next, recalled &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;dhh.dk&#x2F;&quot;&gt;DHH&lt;&#x2F;a&gt; just promoting an &lt;em&gt;Ubuntu&lt;&#x2F;em&gt;-based distro, &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;omakub.org&#x2F;&quot;&gt;Omakub&lt;&#x2F;a&gt;, geared towards developers coming from the Mac to &lt;strong&gt;Linux&lt;&#x2F;strong&gt;. And I have to say it rocks. So many great things in there. Even if you’re not inclined to leave the &lt;em&gt;Apple&lt;&#x2F;em&gt; bubble, I’d recommend taking a look at its CLI &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;manual.omakub.org&#x2F;1&#x2F;read&#x2F;10&#x2F;the-applications&quot;&gt;toolchain&lt;&#x2F;a&gt; and &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;basecamp&#x2F;omakub&quot;&gt;dotfiles&lt;&#x2F;a&gt;, at the very least. Having loads of &lt;strong&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;basecamp&#x2F;omakub&#x2F;issues&#x2F;284&quot;&gt;fun&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; with this, and also finally managed to get my Linux laptop hooked up reliably to my similarly ancient Apple &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;support.apple.com&#x2F;en-us&#x2F;112597&quot;&gt;Thunderbolt display&lt;&#x2F;a&gt; (still a solid screen with some dock-like hub capabilities, a sufficiently well-working webcam, and exceptionally good analog speakers built in).&lt;&#x2F;p&gt;
+&lt;p&gt;Then, got to choose a new work laptop. In the end, went with a &lt;em&gt;Lenovo&lt;&#x2F;em&gt; &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.lenovo.com&#x2F;us&#x2F;en&#x2F;p&#x2F;laptops&#x2F;thinkpad&#x2F;thinkpadx1&#x2F;thinkpad-x1-carbon-gen-12-14-inch-intel&#x2F;len101t0083&quot;&gt;ThinkPad X1 Carbon&lt;&#x2F;a&gt; (Gen 12) – what a great machine. Maxed out most specs, like 64 gigs of RAM and a 2 TB SSD (but a less high-resolution display for battery life). Now, initial plan was to install Linux on it as well, as it came with &lt;strong&gt;Windows&lt;&#x2F;strong&gt; 11 Pro. While updating stuff like drivers, firmware and BIOS, thought why not actually giving it a spin. Having heard from DHH’s &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=odSJr7HZMEQ&quot;&gt;story&lt;&#x2F;a&gt;, he went down a similar path, spending some time on Windows while finding his way out Apple lock-in. With things like &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;learn.microsoft.com&#x2F;en-us&#x2F;windows&#x2F;wsl&#x2F;&quot;&gt;WSL&lt;&#x2F;a&gt; it’s become a seriously nice environment for developers (even got a decent &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;apps.microsoft.com&#x2F;detail&#x2F;9n0dx20hk701?hl=en-us&amp;amp;gl=NL&quot;&gt;terminal app&lt;&#x2F;a&gt; by now), and the OS itself is a pretty pleasant window management system, getting out of the way, these days (&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;microsoft&#x2F;PowerToys?tab=readme-ov-file#microsoft-powertoys&quot;&gt;PowerToys&lt;&#x2F;a&gt; FTW). Amusing how Apple and Microsoft appear to have swapped roles — with MS actively supporting and &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.theverge.com&#x2F;2020&#x2F;5&#x2F;18&#x2F;21262103&#x2F;microsoft-open-source-linux-history-wrong-statement&quot;&gt;embracing open-source&lt;&#x2F;a&gt; software.&lt;&#x2F;p&gt;
+&lt;p&gt;So, am currently happy with this setup. In my home office having ThinkPad connected to my second screen, a good old &lt;em&gt;Dell UltraSharp&lt;&#x2F;em&gt; 27-incher. Seamlessly toggling between Linux and Windows&#x2F;WSL box via &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.amazon.com&#x2F;UGREEN-Switcher-Computers-Keyboard-Splitter&#x2F;dp&#x2F;B0CLXYVM36&quot;&gt;USB switch&lt;&#x2F;a&gt;. Keyboard-wise, am since what feels like an eternity using a &lt;em&gt;Matias&lt;&#x2F;em&gt; &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;matias.ca&#x2F;quietpro&#x2F;mac&#x2F;&quot;&gt;Quiet Pro&lt;&#x2F;a&gt;, and just got me a &lt;em&gt;Lofree&lt;&#x2F;em&gt; &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.lofree.co&#x2F;products&#x2F;lofree-flow-the-smoothest-mechanical-keyboard?variant=44741423169755&quot;&gt;Flow84&lt;&#x2F;a&gt; for on-the-go. Mouse-wise, I like &lt;em&gt;Logitech MX&lt;&#x2F;em&gt; series. &lt;em&gt;Bose&lt;&#x2F;em&gt; headphones rule. In terms of mobile devices, moved from an &lt;em&gt;iPhone&lt;&#x2F;em&gt; (SE) over to a &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;shop.fairphone.com&#x2F;fairphone-5&quot;&gt;Fairphone 5&lt;&#x2F;a&gt;. Also &lt;strong&gt;Android&lt;&#x2F;strong&gt; is pretty neat nowadays, but that’s something for another time, I reckon (Windows mobile integration is quite comfy as well, by the way).&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;PS:&lt;&#x2F;strong&gt; might share some more on my WSL shell setup in the future, stay tuned.&lt;br &#x2F;&gt;
+In a nutshell, it’s a mix of &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;ohmyz.sh&#x2F;&quot;&gt;Oh My Zsh&lt;&#x2F;a&gt; with &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;starship.rs&#x2F;&quot;&gt;Starship&lt;&#x2F;a&gt; prompt, &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.nerdfonts.com&#x2F;&quot;&gt;Nerd Font&lt;&#x2F;a&gt;, various tools (like Neovim through &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.lazyvim.org&#x2F;&quot;&gt;LazyVim&lt;&#x2F;a&gt;), and some custom dotfiles, plus &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;charmbracelet&#x2F;gum?tab=readme-ov-file#gum&quot;&gt;gum&lt;&#x2F;a&gt;-based maintenance scripts, also heavily inspired by Omakub.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Blog NG</title>
+        <published>2024-10-19T00:00:00+00:00</published>
+        <updated>2024-10-19T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Robert Thurnher
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://log.robi42.net/blog-ng/"/>
+        <id>https://log.robi42.net/blog-ng/</id>
+        
+        <content type="html" xml:base="https://log.robi42.net/blog-ng/">&lt;p&gt;As I’m moving on to become a consultant, and eventually trainer,
+this blog is experiencing a breath of &lt;strong&gt;new life&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;In its current incarnation, it’s moved from an &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;imathis&#x2F;octopress?tab=readme-ov-file#what-is-octopress&quot;&gt;Octopress&lt;&#x2F;a&gt; setup to one powered by &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;&quot;&gt;Zola&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Features like tags, comments, archive, &lt;em&gt;what-have-you&lt;&#x2F;em&gt;, may come (again) later – or not.&lt;&#x2F;p&gt;
+&lt;p&gt;Here’s to &lt;a href=&quot;https:&#x2F;&#x2F;log.robi42.net&#x2F;blog&#x2F;2012&#x2F;09&#x2F;16&#x2F;hello&#x2F;&quot;&gt;new beginnings&lt;&#x2F;a&gt; 🙂&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Side note:&lt;&#x2F;strong&gt; Atom feed appears to also be broken now, is anyone still using these anyway?&lt;br &#x2F;&gt;
+&lt;em&gt;Edit:&lt;&#x2F;em&gt; Aaand it’s &lt;a href=&quot;&#x2F;atom.xml&quot;&gt;back&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>About</title>
+        <published>2024-10-01T00:00:00+00:00</published>
+        <updated>2024-10-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Robert Thurnher
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://log.robi42.net/about/"/>
+        <id>https://log.robi42.net/about/</id>
+        
+        <content type="html" xml:base="https://log.robi42.net/about/">&lt;p&gt;Hi, I’m &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;robi42.net&#x2F;&quot;&gt;Robert Thurnher&lt;&#x2F;a&gt;,&lt;br &#x2F;&gt;
+living and working in&lt;br &#x2F;&gt;
+&lt;em&gt;Amsterdam, &lt;strong&gt;NL&lt;&#x2F;strong&gt;&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;You can find me on&lt;br &#x2F;&gt;
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;linkedin.com&#x2F;in&#x2F;rthurnher&quot;&gt;Linkedin&lt;&#x2F;a&gt; and &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;robi42&quot;&gt;Github&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;A current CV a.k.a. résumé&lt;br &#x2F;&gt;
+can be provided on request.&lt;&#x2F;p&gt;
+&lt;p&gt;In case you’d like to contact me:&lt;br &#x2F;&gt;
+&lt;a href=&quot;mailto:robert@thurnher.email&quot;&gt;robert[at]thurnher.email&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;On Mastodon:&lt;br &#x2F;&gt;
+&lt;a rel=&quot;me&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;toot.community&#x2F;@robi42&quot;&gt;@robi42@toot.community&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>TempMunger || Zeitfresser</title>
+        <published>2017-06-17T00:00:00+00:00</published>
+        <updated>2017-06-17T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Robert Thurnher
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://log.robi42.net/blog/2017/06/17/tempmunger-or-zeitfresser/"/>
+        <id>https://log.robi42.net/blog/2017/06/17/tempmunger-or-zeitfresser/</id>
+        
+        <content type="html" xml:base="https://log.robi42.net/blog/2017/06/17/tempmunger-or-zeitfresser/">&lt;p&gt;So, in order to revive this blog a little, I’ve written a &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;robi42.net&#x2F;thesis&quot;&gt;thesis&lt;&#x2F;a&gt;… :)&lt;&#x2F;p&gt;
+&lt;p&gt;Code of the prototype resides on &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;robi42&#x2F;tm&quot;&gt;Github&lt;&#x2F;a&gt; – &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;robi42&#x2F;tm-be&quot;&gt;backend&lt;&#x2F;a&gt; &amp;amp; &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;robi42&#x2F;tm-fe&quot;&gt;frontend&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;In a nutshell: &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;robi42&#x2F;tm&#x2F;blob&#x2F;master&#x2F;doc&#x2F;poster.pdf&quot;&gt;poster.pdf&lt;&#x2F;a&gt; (presentation slides are available as well)&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;robi42.net&#x2F;temp-munger.png&quot; alt=&quot;Munging…&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;So long, and thanks for all the fish.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Boot REST</title>
+        <published>2014-04-13T00:00:00+00:00</published>
+        <updated>2014-04-13T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Robert Thurnher
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://log.robi42.net/blog/2014/04/13/boot-rest/"/>
+        <id>https://log.robi42.net/blog/2014/04/13/boot-rest/</id>
+        
+        <content type="html" xml:base="https://log.robi42.net/blog/2014/04/13/boot-rest/">&lt;p&gt;Here’s a little sort of template toy project regarding contemporary JVM-based REST APIs powering HTML5&#x2F;JS SPAs:&lt;br &#x2F;&gt;
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;robi42&#x2F;boot-rest&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;robi42&#x2F;boot-rest&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Built with JDK 8, Spring Boot, Elasticsearch, Jersey 2, Gradle, Yeoman, Bootstrap, AngularJS, fun, and all that jazz…&lt;&#x2F;p&gt;
+&lt;p&gt;PS: look Ma, no XML! :)&lt;&#x2F;p&gt;
+&lt;p&gt;Update 2015: now with ES6 a.k.a. ES 2015 via JSPM&#x2F;SystemJS…&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Update 2016:&lt;&#x2F;strong&gt; these days, “isomorphic” Redux&#x2F;React is all the rage on the FE side of things…&lt;br&gt;
+One may want to check out &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;este&#x2F;este&quot;&gt;Este.js&lt;&#x2F;a&gt; &amp;amp; co.&lt;br&gt;
+On the BE, Spring Boot’s playing nicely with Kotlin, and Spring MVC’s favourable to JAX-RS, IMHO.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Java.next?</title>
+        <published>2013-07-07T00:00:00+00:00</published>
+        <updated>2013-07-07T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Robert Thurnher
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://log.robi42.net/blog/2013/07/07/java-dot-next/"/>
+        <id>https://log.robi42.net/blog/2013/07/07/java-dot-next/</id>
+        
+        <content type="html" xml:base="https://log.robi42.net/blog/2013/07/07/java-dot-next/">&lt;p&gt;After several years of programming Java while always keeping an eye on alternatives around, I’ve recently come to the conclusion:&lt;&#x2F;p&gt;
+&lt;p&gt;Actually, there are just a few things still missing in the language these days which would render me a &lt;em&gt;happy camper&lt;&#x2F;em&gt;™ indeed (enjoying its mature ecosystem of libraries &amp;amp; tools).&lt;&#x2F;p&gt;
+&lt;p&gt;Especially, since &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;projectlombok.org&#x2F;&quot;&gt;Lombok&lt;&#x2F;a&gt; takes a lot of the general boilerplate code PITA away here (with useful features like convenient property accessors, &lt;code&gt;hashCode&#x2F;equals&#x2F;toString&lt;&#x2F;code&gt; impl., logging facility injection, …).&lt;&#x2F;p&gt;
+&lt;p&gt;Also, &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;code.google.com&#x2F;p&#x2F;guava-libraries&#x2F;wiki&#x2F;GuavaExplained&quot;&gt;Guava&lt;&#x2F;a&gt; does a truly good job in enabling one to write more concise and robust code.&lt;&#x2F;p&gt;
+&lt;p&gt;Plus, Java 7 brought at least some nice, welcome &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.oracle.com&#x2F;technetwork&#x2F;java&#x2F;javase&#x2F;jdk7-relnotes-418459.html#changes&quot;&gt;improvements&lt;&#x2F;a&gt; in&lt;br&gt;
+→ &lt;code&gt;try-with-resources&lt;&#x2F;code&gt;, exceptions &lt;code&gt;multicatch&lt;&#x2F;code&gt;, etc.&lt;&#x2F;p&gt;
+&lt;p&gt;Finally, modern &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.martinfowler.com&#x2F;articles&#x2F;injection.html#FormsOfDependencyInjection&quot;&gt;DI&lt;&#x2F;a&gt; with Spring 4 (or Guice) using &lt;code&gt;javax.inject.*&lt;&#x2F;code&gt; and Java config frees one from most needs for XML and, after all, a build sys beating Maven for real has yet to come.&lt;&#x2F;p&gt;
+&lt;p&gt;So namely, here’s a &lt;strong&gt;personal wish list FTW&lt;&#x2F;strong&gt;:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pretty much everything &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.techempower.com&#x2F;blog&#x2F;2013&#x2F;03&#x2F;26&#x2F;everything-about-java-8&#x2F;&quot;&gt;coming up with Java&#x2F;JDK 8&lt;&#x2F;a&gt; (sooner than later, hopefully) – particularly &lt;strong&gt;lambdas&lt;&#x2F;strong&gt; (at last…)&lt;&#x2F;li&gt;
+&lt;li&gt;More &lt;strong&gt;type inference&lt;&#x2F;strong&gt; (which the JVM is totally capable of); Java 7’s diamond operator’s definitely a good start there but, please, let me write &lt;code&gt;val foos = ...&lt;&#x2F;code&gt; (like in Scala…)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Collection literals&lt;&#x2F;strong&gt; à la Python or C#, something like this would be really sweet:&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;kotlin&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-kotlin &quot;&gt;&lt;code class=&quot;language-kotlin&quot; data-lang=&quot;kotlin&quot;&gt;&lt;span&gt;     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;val &lt;&#x2F;span&gt;&lt;span&gt;foo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; #{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;bar&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;baz&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;     foo[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;bar&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;qux&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Pretty please. :)&lt;&#x2F;p&gt;
+&lt;p&gt;PS: literal multiline strings, and so on and so forth, could be nice (but I can live without).&lt;br&gt;
+PPS: wouldn’t say no to optionally named function&#x2F;constructor args, though.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Update 2016:&lt;&#x2F;strong&gt; these days, &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;kotlinlang.org&#x2F;&quot;&gt;Kotlin&lt;&#x2F;a&gt;’s the way to go, IMHO. :)&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>The Zen of Python</title>
+        <published>2013-02-27T00:00:00+00:00</published>
+        <updated>2013-02-27T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Robert Thurnher
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://log.robi42.net/blog/2013/02/27/the-zen-of-python/"/>
+        <id>https://log.robi42.net/blog/2013/02/27/the-zen-of-python/</id>
+        
+        <content type="html" xml:base="https://log.robi42.net/blog/2013/02/27/the-zen-of-python/">&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span&gt; python -c &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;import this&amp;#39;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Beautiful is better than ugly.&lt;br &#x2F;&gt;
+Explicit is better than implicit.&lt;br &#x2F;&gt;
+Simple is better than complex.&lt;br &#x2F;&gt;
+Complex is better than complicated.&lt;br &#x2F;&gt;
+Flat is better than nested.&lt;br &#x2F;&gt;
+Sparse is better than dense.&lt;br &#x2F;&gt;
+Readability counts.&lt;br &#x2F;&gt;
+Special cases aren’t special enough to break the rules.&lt;br &#x2F;&gt;
+Although practicality beats purity.&lt;br &#x2F;&gt;
+Errors should never pass silently.&lt;br &#x2F;&gt;
+Unless explicitly silenced.&lt;br &#x2F;&gt;
+In the face of ambiguity, refuse the temptation to guess.&lt;br &#x2F;&gt;
+There should be one– and preferably only one –obvious way to do it.&lt;br &#x2F;&gt;
+Although that way may not be obvious at first unless you’re Dutch.&lt;br &#x2F;&gt;
+Now is better than never.&lt;br &#x2F;&gt;
+Although never is often better than &lt;em&gt;right&lt;&#x2F;em&gt; now.&lt;br &#x2F;&gt;
+If the implementation is hard to explain, it’s a bad idea.&lt;br &#x2F;&gt;
+If the implementation is easy to explain, it may be a good idea.&lt;br &#x2F;&gt;
+Namespaces are one honking great idea – let’s do more of those!&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;
+&lt;strong&gt;Tim Peters&lt;&#x2F;strong&gt; — &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.python.org&#x2F;dev&#x2F;peps&#x2F;pep-0020&#x2F;&quot;&gt;PEP 20&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>The Humble Programmer</title>
+        <published>2012-12-07T00:00:00+00:00</published>
+        <updated>2012-12-07T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Robert Thurnher
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://log.robi42.net/blog/2012/12/07/the-humble-programmer/"/>
+        <id>https://log.robi42.net/blog/2012/12/07/the-humble-programmer/</id>
+        
+        <content type="html" xml:base="https://log.robi42.net/blog/2012/12/07/the-humble-programmer/">&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;The competent programmer is fully aware of the strictly limited size of his own skull;
+therefore he approaches the programming task in full humility,
+and among other things he avoids clever tricks like the plague.&lt;&#x2F;em&gt;&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;
+&lt;strong&gt;Edsger W. Dijkstra&lt;&#x2F;strong&gt; — &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;www.cs.utexas.edu&#x2F;users&#x2F;EWD&#x2F;transcriptions&#x2F;EWD03xx&#x2F;EWD340.html&quot;&gt;ACM Turing Lecture 1972&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>A Visual Music Exploration Plugin App for Spotify&#x27;s Desktop Client</title>
+        <published>2012-11-21T00:00:00+00:00</published>
+        <updated>2012-11-21T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Robert Thurnher
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://log.robi42.net/blog/2012/11/21/a-visual-music-exploration-plugin-app-for-spotifys-desktop-client/"/>
+        <id>https://log.robi42.net/blog/2012/11/21/a-visual-music-exploration-plugin-app-for-spotifys-desktop-client/</id>
+        
+        <content type="html" xml:base="https://log.robi42.net/blog/2012/11/21/a-visual-music-exploration-plugin-app-for-spotifys-desktop-client/">&lt;p&gt;This R&amp;amp;D project which I’ve finished recently is in its essence implementing an innovative way of visualizing Spotify music collection data. It’s mainly geared towards discovery of similar music related to the currently played tracks of a user. Technically, the project partially builds upon the foundation layed out with a previous labs project – here’s a &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;sftb.herokuapp.com&#x2F;docs&#x2F;report.pdf&quot;&gt;report&lt;&#x2F;a&gt; (PDF). Organisationally, it was done as a cooperation with &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;www.spectralmind.com&#x2F;&quot;&gt;Spectralmind&lt;&#x2F;a&gt; and the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;ifs.tuwien.ac.at&#x2F;mir&#x2F;&quot;&gt;MIR group&lt;&#x2F;a&gt; of Vienna University of Technology.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;implementation&quot;&gt;Implementation&lt;&#x2F;h2&gt;
+&lt;p&gt;Basically, the app connects to &lt;strong&gt;Last.fm&lt;&#x2F;strong&gt; data for similarity computation with their (more or less) RESTful web service API via JSONP. In addition to that, &lt;strong&gt;Spotify&lt;&#x2F;strong&gt;’s desktop client &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;developer.spotify.com&#x2F;technologies&#x2F;apps&#x2F;&quot;&gt;plugin apps&lt;&#x2F;a&gt; JS API is used pretty heavily. The graphics are rendered as interactive SVG through &lt;strong&gt;Raphaël.js&lt;&#x2F;strong&gt;. Plus, &lt;strong&gt;Backbone.js&lt;&#x2F;strong&gt; is applied as a mean to improve structure and, consequently, maintainability of the app. For layouting the animated visualization itself a force-directed &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Force-based_algorithms_%28graph_drawing%29&quot;&gt;spring graph&lt;&#x2F;a&gt; algorithm implementation is employed which was orginally written within Google’s Caja project and now adapted + tuned for the specific use case here.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;functionality&quot;&gt;Functionality&lt;&#x2F;h2&gt;
+&lt;p&gt;In the beginning, the user sees the current track symbolized by a central blue bubble and a loading spinner indicating app activity. Here’s a screenshot:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;spotify-bubbles&#x2F;screenshot1.png&quot; alt=&quot;Screenshot 1&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;After that, found similar tracks are arranged as red bubbles in a concentric circle around the central one. Again, a screenshot:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;spotify-bubbles&#x2F;screenshot2.png&quot; alt=&quot;Screenshot 2&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Here’s how the actual animated spring graph layouting visualization initially looks like:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;spotify-bubbles&#x2F;screenshot3.png&quot; alt=&quot;Screenshot 3&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;And this is how it can look like when the animation finished rendering:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;spotify-bubbles&#x2F;screenshot4.png&quot; alt=&quot;Screenshot 4&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;The history of played tracks is visualized as a diagonal, interactive sort of a time axis which can also be seen here:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;spotify-bubbles&#x2F;screenshot5.png&quot; alt=&quot;Screenshot 5&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Intuitively, clicking on a bubble plays the respective track in the Spotify audio player and triggers a visualization iteration, BTW.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
+&lt;p&gt;The approach proved to be viable and it can be worthwhile indeed searching and discovering new music fitting to one’s individual taste in an entertaining way with this Spotify plugin app. Nevertheless, there are still numerous details where improvements and enhancements are possible. E.g., the graphics and visualization could be made more pleasant. Apart from that, also further tweaking connected to similarity computation could be done. Yet, as a research prototype demonstrating a proof of concept this is sufficient, it was fun building it, and possibly it’ll show up within a polished product in one way or another. :)&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;PS &amp;amp; FYI:&lt;&#x2F;strong&gt; Spectralmind is currently looking for Android developers – I’d recommend &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;www.spectralmind.com&#x2F;company&#x2F;jobs&#x2F;&quot;&gt;applying&lt;&#x2F;a&gt; since they’re great folks to work with on interesting projects.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Pragmatic App Stats With R</title>
+        <published>2012-10-21T00:00:00+00:00</published>
+        <updated>2012-10-21T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Robert Thurnher
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://log.robi42.net/blog/2012/10/21/pragmatic-app-stats-with-r/"/>
+        <id>https://log.robi42.net/blog/2012/10/21/pragmatic-app-stats-with-r/</id>
+        
+        <content type="html" xml:base="https://log.robi42.net/blog/2012/10/21/pragmatic-app-stats-with-r/">&lt;p&gt;Here’re some tips for conveniently generating automated visual app stats from MySQL data.&lt;&#x2F;p&gt;
+&lt;p&gt;Recommended toolchain:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.r-project.org&#x2F;&quot;&gt;R&lt;&#x2F;a&gt; + &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;posit.co&#x2F;products&#x2F;open-source&#x2F;rstudio&#x2F;&quot;&gt;RStudio&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;cran.r-project.org&#x2F;web&#x2F;packages&#x2F;RMySQL&#x2F;&quot;&gt;RMySQL&lt;&#x2F;a&gt; + &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;ggplot2.tidyverse.org&#x2F;&quot;&gt;ggplot2&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;*nix, cron + mailx &amp;amp; co.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Corresponding code bits to get one started:&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;simplified-r-script&quot;&gt;Simplified R script&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;r&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-r &quot;&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span style=&quot;color:#616e88;&quot;&gt;#!&#x2F;usr&#x2F;bin&#x2F;Rscript
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#616e88;&quot;&gt;#install.packages(&amp;#39;RMySQL&amp;#39;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#616e88;&quot;&gt;#install.packages(&amp;#39;ggplot2&amp;#39;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;library&lt;&#x2F;span&gt;&lt;span&gt;(RMySQL)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;library&lt;&#x2F;span&gt;&lt;span&gt;(ggplot2)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;library&lt;&#x2F;span&gt;&lt;span&gt;(grid)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#616e88;&quot;&gt;# PNG layout of plots helper.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;vplayout &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;&amp;lt;- function&lt;&#x2F;span&gt;&lt;span&gt;(x&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;y) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;viewport&lt;&#x2F;span&gt;&lt;span&gt;(layout.pos.row&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt;x&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;layout.pos.col&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt;y)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#616e88;&quot;&gt;# Connect to DB.
+&lt;&#x2F;span&gt;&lt;span&gt;dbUsername &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;&amp;lt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;some_user&amp;#39;
+&lt;&#x2F;span&gt;&lt;span&gt;dbPassword &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;&amp;lt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;some_password&amp;#39;
+&lt;&#x2F;span&gt;&lt;span&gt;dbName     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;&amp;lt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;app_stats_snapshot&amp;#39;
+&lt;&#x2F;span&gt;&lt;span&gt;dbHost     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;&amp;lt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;localhost&amp;#39;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;dbConnection &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;&amp;lt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;dbConnect&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;MySQL&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;user&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt;dbUsername&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;password&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt;dbPassword&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;                          dbname&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt;dbName&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;host&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt;dbHost)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#616e88;&quot;&gt;# Exemplary queries.
+&lt;&#x2F;span&gt;&lt;span&gt;recordsPerDayQuery &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;&amp;lt;-
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;select date(created_at) as Day, count(*) as Count from records where created_at &amp;gt;= &amp;quot;2012-1-1&amp;quot; and date(created_at) &amp;lt; date(now()) group by Day&amp;#39;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;otherRecordsPerDayQuery &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;&amp;lt;-
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;select date(created_at) as Day, count(*) as Count from other_records where created_at &amp;gt;= &amp;quot;2012-1-1&amp;quot; and date(created_at) &amp;lt; date(now()) group by Day&amp;#39;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#616e88;&quot;&gt;# ...
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#616e88;&quot;&gt;# Query data and plot charts.
+&lt;&#x2F;span&gt;&lt;span&gt;d1 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;&amp;lt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;dbGetQuery&lt;&#x2F;span&gt;&lt;span&gt;(dbConnection&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; recordsPerDayQuery)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;xlabText &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;&amp;lt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;2012&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;&lt;&#x2F;span&gt;&lt;span&gt; ylabText &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;&amp;lt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;Count&amp;#39;
+&lt;&#x2F;span&gt;&lt;span&gt;Records &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt;&lt;span&gt; d1$Count
+&lt;&#x2F;span&gt;&lt;span&gt;heading1 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;&amp;lt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;Records per Day&amp;#39;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;plot1 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;&amp;lt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;qplot&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;as.Date&lt;&#x2F;span&gt;&lt;span&gt;(d1$Day)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; d1$Count&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;geom&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;line&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;color&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt;Records&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;               main&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt;heading1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;xlab&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt;xlabText&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;ylab&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt;ylabText)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;d2 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;&amp;lt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;dbGetQuery&lt;&#x2F;span&gt;&lt;span&gt;(dbConnection&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; otherRecordsPerDayQuery)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Other &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt;&lt;span&gt; d2$Count
+&lt;&#x2F;span&gt;&lt;span&gt;heading2 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;&amp;lt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;Other Records per Day&amp;#39;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;plot2 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;&amp;lt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;qplot&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;as.Date&lt;&#x2F;span&gt;&lt;span&gt;(d2$Day)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; d2$Count&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;geom&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;line&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;color&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt;Other&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;               main&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt;heading2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;xlab&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;2012&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;ylab&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;Count&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#616e88;&quot;&gt;# ...
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#616e88;&quot;&gt;# Write data tables to mail text file.
+&lt;&#x2F;span&gt;&lt;span&gt;mailTextFilename &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;&amp;lt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;&#x2F;path&#x2F;to&#x2F;stats-mail.txt&amp;#39;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;cat&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;paste&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;Hi,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;\n\n&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;#&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; heading1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;\n&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;file&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt;mailTextFilename)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;write.table&lt;&#x2F;span&gt;&lt;span&gt;(d1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;file&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt;mailTextFilename&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;append&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=TRUE&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;            row.names&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=FALSE&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;quote&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=FALSE&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;sep&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39; | &amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;cat&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;paste&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;\n&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;#&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; heading2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;\n&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;file&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt;mailTextFilename&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;append&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=TRUE&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;write.table&lt;&#x2F;span&gt;&lt;span&gt;(d2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;file&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt;mailTextFilename&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;append&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=TRUE&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;            row.names&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=FALSE&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;quote&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=FALSE&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;sep&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39; | &amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#616e88;&quot;&gt;# ...
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#616e88;&quot;&gt;# Make PNG with plotted charts.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;png&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;&#x2F;path&#x2F;to&#x2F;stats.png&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;width&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;1024&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;height&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;768&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;grid.newpage&lt;&#x2F;span&gt;&lt;span&gt;()
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;pushViewport&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;viewport&lt;&#x2F;span&gt;&lt;span&gt;(layout&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;grid.layout&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;)))
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;print&lt;&#x2F;span&gt;&lt;span&gt;(plot1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;vp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;vplayout&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;))
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;print&lt;&#x2F;span&gt;&lt;span&gt;(plot2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;vp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;vplayout&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;))
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#616e88;&quot;&gt;# ...
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;dev.off&lt;&#x2F;span&gt;&lt;span&gt;()
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;related-crontab-sending-stats-mail-once-per-week&quot;&gt;Related crontab sending stats mail once per week&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#616e88;&quot;&gt;# m h  dom mon dow   command
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;30&lt;&#x2F;span&gt;&lt;span&gt; 4 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;* *&lt;&#x2F;span&gt;&lt;span&gt; 1 &#x2F;path&#x2F;to&#x2F;stats.r
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;  5 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;* *&lt;&#x2F;span&gt;&lt;span&gt; 1 mailx -s &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;[Example] Stats&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt; -a &#x2F;path&#x2F;to&#x2F;stats.png stats@example.com &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt; &#x2F;path&#x2F;to&#x2F;stats-mail.txt
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;HTH.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Xamarin FTW?</title>
+        <published>2012-09-24T00:00:00+00:00</published>
+        <updated>2012-09-24T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Robert Thurnher
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://log.robi42.net/blog/2012/09/24/xamarin-ftw/"/>
+        <id>https://log.robi42.net/blog/2012/09/24/xamarin-ftw/</id>
+        
+        <content type="html" xml:base="https://log.robi42.net/blog/2012/09/24/xamarin-ftw/">&lt;p&gt;Often, when developing a mobile app one wants to target iOS as well as Android (+ maybe MS’ OS).&lt;&#x2F;p&gt;
+&lt;p&gt;Now, this basically means developing the app from scratch and consequently maintaining it at least twice on different platforms, written in different languages (Objective-C and Java, that is), using different sets of tools etc.&lt;&#x2F;p&gt;
+&lt;p&gt;Cumbersome and potentially error-prone. Well, there’s a viable alternative:&lt;&#x2F;p&gt;
+&lt;p&gt;With &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;xamarin.com&#x2F;&quot;&gt;Xamarin&lt;&#x2F;a&gt; one can write mobile apps targetting iOS and Android in C# using .NET (and native) libraries, sharing code (business logic, data &amp;amp; web service layers, utilities, …) while creating fully native UIs built on each platform’s own SDKs, providing access to all respective device capabilities.&lt;&#x2F;p&gt;
+&lt;p&gt;In addition to that, there’s for example &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;blog.xamarin.com&#x2F;2012&#x2F;02&#x2F;10&#x2F;easily-create-ios-user-interfaces-with-monotouch-dialog&#x2F;&quot;&gt;MonoTouch.Dialog&lt;&#x2F;a&gt; making it easier and more fun to create table-based iOS UIs and for Android there’s a useful visual &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;docs.xamarin.com&#x2F;android&#x2F;tutorials&#x2F;Designer_Walkthrough&quot;&gt;UI design tool&lt;&#x2F;a&gt; within the MonoDevelop IDE. Plus, there’s &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;xamarin.com&#x2F;mobileapi&quot;&gt;Xamarin.Mobile&lt;&#x2F;a&gt; aimed at exposing an unified API facade for accessing common device features. All interesting stuff when used sensibly.&lt;&#x2F;p&gt;
+&lt;p&gt;Here’s some demo code (which is loosely based on samples from the recommendable book &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;shop.oreilly.com&#x2F;product&#x2F;0636920024002.do&quot;&gt;“Mobile Development with C#”&lt;&#x2F;a&gt;) showing how mentioned shared layers could benefit:&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;simple-model&quot;&gt;Simple model&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;c#&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-c# &quot;&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public class &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Tweet
+&lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public long     &lt;&#x2F;span&gt;&lt;span&gt;Id        { &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;get&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;set&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;; &lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;DateTime &lt;&#x2F;span&gt;&lt;span&gt;CreatedAt { &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;get&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;set&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;; &lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public string   &lt;&#x2F;span&gt;&lt;span&gt;Text      { &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;get&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;set&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;; &lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;simple-rest-api-client&quot;&gt;Simple REST API client&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;c#&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-c# &quot;&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public class &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TwitterApiClient
+&lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;const string &lt;&#x2F;span&gt;&lt;span&gt;BaseUrl &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;https:&#x2F;&#x2F;api.twitter.com&#x2F;1&#x2F;statuses&#x2F;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;public void &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;DoWithTweetsForUser&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;string &lt;&#x2F;span&gt;&lt;span&gt;username&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Action&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;IList&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Tweet&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&amp;gt; callback)
+&lt;&#x2F;span&gt;&lt;span&gt;    {
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;var &lt;&#x2F;span&gt;&lt;span&gt;webClient &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;WebClient&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;var &lt;&#x2F;span&gt;&lt;span&gt;url &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= string.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;Format&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;user_timeline.json?screen_name=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;                                BaseUrl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;Uri&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;EscapeUriString&lt;&#x2F;span&gt;&lt;span&gt;(username))&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        webClient&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;DownloadStringCompleted &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;+= &lt;&#x2F;span&gt;&lt;span&gt;(sender&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;e) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;var &lt;&#x2F;span&gt;&lt;span&gt;tweets &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;from &lt;&#x2F;span&gt;&lt;span&gt;element &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span&gt;JsonValue&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;Parse&lt;&#x2F;span&gt;&lt;span&gt;(e&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;Result) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;as &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonArray
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;let &lt;&#x2F;span&gt;&lt;span&gt;tweetData &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;element &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;as &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;JsonObject
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;select new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Tweet &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;                    Id        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;tweetData[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;id&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;                    CreatedAt &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;DateTime&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;ParseExact&lt;&#x2F;span&gt;&lt;span&gt;(tweetData[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;created_at&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;                                    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;ddd MMM dd HH:mm:ss zz00 yyyy&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;null&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;                    Text      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;tweetData[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;text&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;                })
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;ToList&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;callback&lt;&#x2F;span&gt;&lt;span&gt;(tweets)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;        }&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        webClient&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;DownloadStringAsync&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Uri&lt;&#x2F;span&gt;&lt;span&gt;(url))&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;exemplary-user-code&quot;&gt;Exemplary user code&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;c#&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-c# &quot;&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;var &lt;&#x2F;span&gt;&lt;span&gt;apiClient &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;TwitterApiClient&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;apiClient&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;DoWithTweetsForUser&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;robi42&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;tweets &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;foreach &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;var &lt;&#x2F;span&gt;&lt;span&gt;tweet &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span&gt;tweets) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#616e88;&quot;&gt;&#x2F;&#x2F; Just for demo purpose.
+&lt;&#x2F;span&gt;&lt;span&gt;        Debug&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;WriteLine&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;Tweet from &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;tweet&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;CreatedAt&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;tweet&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;Text)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;})&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eceff4;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And with .NET 4.5’s new &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;blogs.msdn.com&#x2F;b&#x2F;dotnet&#x2F;archive&#x2F;2012&#x2F;04&#x2F;03&#x2F;async-in-4-5-worth-the-await.aspx&quot;&gt;async features&lt;&#x2F;a&gt; landing in Monoland soon, related code will get even more convenient to write and handle.&lt;&#x2F;p&gt;
+&lt;p&gt;Pretty neat, IMHO. What do you think?&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Play 2 Boilerplate</title>
+        <published>2012-09-21T00:00:00+00:00</published>
+        <updated>2012-09-21T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Robert Thurnher
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://log.robi42.net/blog/2012/09/21/play2-boilerplate/"/>
+        <id>https://log.robi42.net/blog/2012/09/21/play2-boilerplate/</id>
+        
+        <content type="html" xml:base="https://log.robi42.net/blog/2012/09/21/play2-boilerplate/">&lt;p&gt;A little project aimed at getting one up and running quickly with building a
+contemporary web app using &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;www.playframework.org&#x2F;&quot;&gt;Play 2&lt;&#x2F;a&gt; framework.&lt;&#x2F;p&gt;
+&lt;p&gt;Contains a bunch of current web dev &lt;strong&gt;best practices&lt;&#x2F;strong&gt; and niceties, from latest
+Twitter Bootstrap (LESS) &amp;amp; Backbone.js to CoffeeScript with CommonJS modules
+support &amp;amp; proper JS bundling.&lt;&#x2F;p&gt;
+&lt;p&gt;Here’re a couple of exemplary code snippets to whet one’s appetite:&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;main-coffee&quot;&gt;main.coffee&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;ruby&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-ruby &quot;&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span&gt;{log} &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= require &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;.&#x2F;utilities&amp;#39;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;$(document)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;ready &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;-&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  window&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;app &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;{}
+&lt;&#x2F;span&gt;&lt;span&gt;  log &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;#39;Hello, world!&amp;#39;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;return
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;application-scala&quot;&gt;Application.scala&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;scala&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-scala &quot;&gt;&lt;code class=&quot;language-scala&quot; data-lang=&quot;scala&quot;&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;object&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt; Application &lt;&#x2F;span&gt;&lt;span&gt;extends &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Controller &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;def &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;index &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Action &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Ok&lt;&#x2F;span&gt;&lt;span&gt;(views&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;html&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;index(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Messages&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;quot;app.name&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;)))
+&lt;&#x2F;span&gt;&lt;span&gt;  }
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;robi42&#x2F;play2-boilerplate&quot;&gt;Get it on GitHub&lt;&#x2F;a&gt; while it’s hot.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Hello, World!</title>
+        <published>2012-09-16T00:00:00+00:00</published>
+        <updated>2012-09-16T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Robert Thurnher
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://log.robi42.net/blog/2012/09/16/hello/"/>
+        <id>https://log.robi42.net/blog/2012/09/16/hello/</id>
+        
+        <content type="html" xml:base="https://log.robi42.net/blog/2012/09/16/hello/">&lt;p&gt;&lt;img src=&quot;&#x2F;geekandpoke.jpg&quot; alt=&quot;Hesse&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
