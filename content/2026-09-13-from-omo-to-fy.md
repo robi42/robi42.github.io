@@ -16,6 +16,6 @@ Especially, given state & ecosystem of latest and greatest LLMs.
 
 Thus, rolled my own :)
 
-Plainly called [Factory](https://github.com/robi42/factory), _fy_ for short.
+Plainly called **[Factory](https://github.com/robi42/factory)**, _fy_ for short.
 
 Bleeding edge, have fun.
