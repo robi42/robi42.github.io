@@ -12,7 +12,7 @@ These days, have been enjoying reviving my ancient mid-2014 MBP with [Omarchy](h
 So, for quite some time now, which is like less than a year in these fast-moving times, been using [Oh My OpenAgent](https://omo.dev/), a.k.a. _OmO_.
 
 Now, there's quite something to like. Yet, feels bit outdated.  
-Especially, given state & ecosystem of latest and greatest LLMs.
+Especially, given state and ecosystem of latest & greatest LLMs.
 
 Thus, rolled my own :)
 
