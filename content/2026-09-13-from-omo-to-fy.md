@@ -18,4 +18,4 @@ Thus, rolled my own :)
 
 Plainly called **[Factory](https://github.com/robi42/factory)**, _fy_ for short.
 
-Bleeding edge, lean, have fun.
+Bleeding edge. Lean. Have fun.
