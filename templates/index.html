@@ -10,6 +10,9 @@
 
       <title>{% block title %}{{ config.title }}{% endblock title %}</title>
 
+      <!-- Mastodon -->
+      <link rel="me" href="https://mastodon.world/@robi42">
+
       <!-- CSS -->
       <link rel="stylesheet" href="{{ get_url(path="print.css", trailing_slash=false) }}" media="print">
       <link rel="stylesheet" href="{{ get_url(path="poole.css", trailing_slash=false) }}">
@@ -20,9 +23,6 @@
       {% if config.generate_feeds %}
         <link rel="alternate" type={% if config.feed_filenames[0] == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filenames[0]) | safe }}">
       {% endif %}
-
-      <!-- Mastodon -->
-      <link rel="me" href="https://mastodon.world/@robi42">
 
       {% block extra_head %}
       {% endblock extra_head %}
