@@ -17,5 +17,4 @@ In case you’d like to contact me:
 [robert[at]thurnher.email](mailto:robert@thurnher.email)
 
 On Mastodon:  
-<a rel="me" target="_blank" href="https://toot.community/@robi42">@robi42@toot.community</a>
-
+<a rel="me" target="_blank" href="https://mastodon.world/@robi42">@robi42@mastodon.world</a>
